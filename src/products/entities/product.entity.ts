@@ -9,7 +9,7 @@ export class Product {
   @Column({ type: 'text' })
   description: string;
   @Column()
-  image_urL: string;
+  image_url: string;
   @Column()
   price: number;
 }
