@@ -12,3 +12,27 @@ Content-Type: application/json
 GET http://localhost:3000/products HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
+
+###
+POST http://localhost:3000/orders HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "product_id": "1a2c3e4f-5678-90ab-cdef-123456789abc",
+      "quantity": 1
+    },
+    {
+      "product_id": "23456789-abcdef-0123-4567-89abcdef01",
+      "quantity":1
+    }
+  ],
+  "card_hash": "card_hash"
+}
+
+###
+GET http://localhost:3000/orders HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json

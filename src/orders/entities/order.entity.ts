@@ -36,7 +36,7 @@ export class Order {
   @CreateDateColumn()
   created_at: Date;
 
-  @OneToMany(() => OrderItem, (x) => x.order)
+  @OneToMany(() => OrderItem, (x) => x.order, { cascade: ['insert'] })
   items: OrderItem[];
 
   static create(input: CreateOrderComand) {

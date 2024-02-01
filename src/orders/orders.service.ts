@@ -37,12 +37,12 @@ export class OrdersService {
       }),
     });
 
-    this.OrderRepo.save(order);
+    await this.OrderRepo.save(order);
     return order;
   }
 
   findAll() {
-    return `This action returns all orders`;
+    return this.OrderRepo.find();
   }
 
   findOne(id: number) {
