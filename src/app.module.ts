@@ -7,6 +7,8 @@ import { Product } from './products/entities/product.entity';
 import { OrdersModule } from './orders/orders.module';
 import { Order } from './orders/entities/order.entity';
 import { OrderItem } from './orders/entities/order-item.entity';
+import { ClientsModule } from './clients/clients.module';
+import { Client } from './clients/entities/client.entity';
 
 @Module({
   imports: [
@@ -17,12 +19,13 @@ import { OrderItem } from './orders/entities/order-item.entity';
       username: 'root',
       password: 'root',
       database: 'nest',
-      entities: [Product, Order, OrderItem],
+      entities: [Product, Order, OrderItem, Client],
       synchronize: true,
       logging: true,
     }),
     ProductsModule,
     OrdersModule,
+    ClientsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
