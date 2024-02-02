@@ -36,6 +36,7 @@ Content-Type: application/json
 GET http://localhost:3000/orders HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfbmFtZSI6Ik9zbWFyIiwiaWF0IjoxNzA2ODgyMDU2LCJleHAiOjE3MDY4ODIxMTZ9.44lHOZsYrPt5W9Sl8vUTAfSVAR3Dh3rnbR8WqUu5KHw
 
 
 ###
