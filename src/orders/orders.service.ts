@@ -12,7 +12,7 @@ export class OrdersService {
     @InjectRepository(Product) private ProductRepo: Repository<Product>,
   ) {}
 
-  async create(createOrderDto: CreateOrderDto) {
+  async create(createOrderDto: CreateOrderDto & { client_id: number }) {
     const productIds = createOrderDto.items.map((x) => x.product_id);
     const uniqueProductIds = [...new Set(productIds)]; // this strategy delete the duplicated IDs
     const products = await this.ProductRepo.findBy({
@@ -25,7 +25,7 @@ export class OrdersService {
       );
 
     const order = Order.create({
-      client_id: 1, // TODO: get this from the TOKEN.
+      client_id: createOrderDto.client_id,
       items: createOrderDto.items.map((x) => {
         const { price } = products.find((y) => (y.id = x.product_id));
 
@@ -41,11 +41,12 @@ export class OrdersService {
     return order;
   }
 
-  findAll() {
-    return this.OrderRepo.find();
+  async findAll(client_id: number) {
+    const [row, count] = await this.OrderRepo.findAndCountBy({ client_id });
+    return { count, row };
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} order`;
+  findOne(id: string, client_id: number) {
+    return this.OrderRepo.findOneByOrFail({ id, client_id });
   }
 }
