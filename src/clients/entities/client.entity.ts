@@ -14,7 +14,7 @@ export class Client {
   @Column({ unique: true })
   name: string;
 
-  @Column({ select: false })
+  @Column()
   password: string;
 
   static async create(input: CreateClientComand) {
@@ -22,5 +22,9 @@ export class Client {
     client.name = input.name;
     client.password = await bcrypt.hash(input.password, 10);
     return client;
+  }
+
+  async verifyPassword(password: string) {
+    return await bcrypt.compare(password, this.password);
   }
 }

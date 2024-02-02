@@ -9,6 +9,7 @@ import { Order } from './orders/entities/order.entity';
 import { OrderItem } from './orders/entities/order-item.entity';
 import { ClientsModule } from './clients/clients.module';
 import { Client } from './clients/entities/client.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { Client } from './clients/entities/client.entity';
     ProductsModule,
     OrdersModule,
     ClientsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
