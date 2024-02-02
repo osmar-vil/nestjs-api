@@ -3,7 +3,7 @@ import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Client } from './entities/client.entity';
-import { Repository } from 'typeorm';
+import { EntityNotFoundError, Repository } from 'typeorm';
 
 @Injectable()
 export class ClientsService {
@@ -26,18 +26,26 @@ export class ClientsService {
   }
 
   findAll() {
-    return `This action returns all clients`;
+    return this.clientRepo.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} client`;
+  async findOne(id: number) {
+    try {
+      return await this.clientRepo.findOneByOrFail({ id });
+    } catch (error) {
+      if (error instanceof EntityNotFoundError)
+        throw new BadRequestException(error.message);
+      throw new Error(error);
+    }
   }
 
-  update(id: number, updateClientDto: UpdateClientDto) {
-    return `This action updates a #${id} client`;
+  async update(id: number, updateClientDto: UpdateClientDto) {
+    return await this.clientRepo.save({ id, ...updateClientDto });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} client`;
+  async remove(id: number) {
+    const entity = await this.findOne(id);
+    await this.clientRepo.delete(id);
+    return entity;
   }
 }

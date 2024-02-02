@@ -47,3 +47,27 @@ Content-Type: application/json
   "name": "Osmar 2",
   "password": "12345689"
 }
+
+###
+GET http://localhost:3000/clients HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+###
+GET http://localhost:3000/clients/3 HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+###
+PATCH http://localhost:3000/clients/3 HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "name": "algo"
+}
+
+###
+DELETE http://localhost:3000/clients/4 HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
