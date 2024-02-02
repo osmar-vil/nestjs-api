@@ -44,6 +44,6 @@ Host: localhost:3000
 Content-Type: application/json
 
 {
-  "name": "Osmar",
+  "name": "Osmar 2",
   "password": "12345689"
 }

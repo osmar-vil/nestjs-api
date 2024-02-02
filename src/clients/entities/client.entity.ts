@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 export type CreateClientComand = {
   name: string;
@@ -16,10 +17,10 @@ export class Client {
   @Column({ select: false })
   password: string;
 
-  static create(input: CreateClientComand) {
+  static async create(input: CreateClientComand) {
     const client = new Client();
     client.name = input.name;
-    client.password = input.password; // TODO: hash it.
+    client.password = await bcrypt.hash(input.password, 10);
     return client;
   }
 }

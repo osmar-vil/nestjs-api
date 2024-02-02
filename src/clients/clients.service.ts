@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -12,7 +12,15 @@ export class ClientsService {
   ) {}
 
   async create(createClientDto: CreateClientDto) {
-    const client = Client.create(createClientDto);
+    const nameExist = await this.clientRepo.findOneBy({
+      name: createClientDto.name,
+    });
+    if (nameExist)
+      throw new BadRequestException(
+        `this name: "${createClientDto.name}" is already taken, please provided a new one`,
+      );
+
+    const client = await Client.create(createClientDto);
     await this.clientRepo.save(client);
     return client;
   }
