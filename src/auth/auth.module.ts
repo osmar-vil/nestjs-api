@@ -12,7 +12,7 @@ import { AuthGuard } from './auth.guard';
     JwtModule.register({
       global: true,
       secret: '123456789', // TODO: add it .env
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '1h' },
     }),
     TypeOrmModule.forFeature([Client]),
   ],
