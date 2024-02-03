@@ -18,7 +18,7 @@ Content-Type: application/json
 POST http://localhost:3000/orders HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfbmFtZSI6Ik9zbWFyIiwiaWF0IjoxNzA2OTYyMzA3LCJleHAiOjE3MDY5NjU5MDd9.5_9DIQVJtcr1Gnq4yRb8RNMGchDFckUnKHCLA3ev98g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfbmFtZSI6Ik9zbWFyIiwiaWF0IjoxNzA2OTY5ODcxLCJleHAiOjE3MDY5NzM0NzF9.VCOwtXN81EyYMDe1lzNcJGJE06JGf6aF-uVtqsw22OA
 
 {
   "items": [
@@ -39,7 +39,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfb
 GET http://localhost:3000/orders HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfbmFtZSI6Ik9zbWFyIiwiaWF0IjoxNzA2OTYyMzA3LCJleHAiOjE3MDY5NjU5MDd9.5_9DIQVJtcr1Gnq4yRb8RNMGchDFckUnKHCLA3ev98g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfbmFtZSI6Ik9zbWFyIiwiaWF0IjoxNzA2OTYyNjg4LCJleHAiOjE3MDY5NjYyODh9.nsqLOxFr1B6WEVvynJp0_iayb6gkmEKrNGnDV4wC4sw
 
 
 ###
@@ -83,6 +83,6 @@ Host: localhost:3000
 Content-Type: application/json
 
 {
-  "name": "Juan",
+  "name": "Osmar",
   "password": "12345689"
 }
