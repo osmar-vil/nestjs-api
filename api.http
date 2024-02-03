@@ -13,10 +13,12 @@ GET http://localhost:3000/products HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
 
+// ORDERS CREATE
 ###
 POST http://localhost:3000/orders HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfbmFtZSI6Ik9zbWFyIiwiaWF0IjoxNzA2OTYyMzA3LCJleHAiOjE3MDY5NjU5MDd9.5_9DIQVJtcr1Gnq4yRb8RNMGchDFckUnKHCLA3ev98g
 
 {
   "items": [
@@ -32,11 +34,12 @@ Content-Type: application/json
   "card_hash": "card_hash"
 }
 
+// ORDERS LIST
 ###
 GET http://localhost:3000/orders HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfbmFtZSI6Ik9zbWFyIiwiaWF0IjoxNzA2ODgyMDU2LCJleHAiOjE3MDY4ODIxMTZ9.44lHOZsYrPt5W9Sl8vUTAfSVAR3Dh3rnbR8WqUu5KHw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJfbmFtZSI6Ik9zbWFyIiwiaWF0IjoxNzA2OTYyMzA3LCJleHAiOjE3MDY5NjU5MDd9.5_9DIQVJtcr1Gnq4yRb8RNMGchDFckUnKHCLA3ev98g
 
 
 ###
@@ -45,7 +48,7 @@ Host: localhost:3000
 Content-Type: application/json
 
 {
-  "name": "Osmar 2",
+  "name": "Juan",
   "password": "12345689"
 }
 
@@ -80,6 +83,6 @@ Host: localhost:3000
 Content-Type: application/json
 
 {
-  "name": "Osmar",
+  "name": "Juan",
   "password": "12345689"
 }
